@@ -9,12 +9,12 @@ struct process
 void queue_update(int n, vector<process> p, int time, deque<int> &q);
 int main()
 {
-    int n;
+    int n,i,j;
     cin>>n;
 
     vector<process> p(n);
 
-    for(int i=0; i<n;i++)
+    for( i=0; i<n;i++)
     {
         cin>>p[i].arr_time>>p[i].burst_time;
         p[i].pid = i+1;
@@ -33,7 +33,7 @@ int main()
         queue_update(n,p,time,q);
         
         int id = q.front();
-        for(int j=1; j<=tq; j++)
+        for(j=1; j<=tq; j++)
         {   
             // cout<<"j = "<<j<<endl;
             time++;
@@ -54,8 +54,8 @@ int main()
 }
 
 void queue_update(int n, vector<process> p, int time, deque<int> &q)
-{
-    for(int j=0; j<n;j++)
+{   int j;
+    for(j=0; j<n;j++)
         {
             if(p[j].arr_time<=time && p[j].temp_b_time>0)
             {  
